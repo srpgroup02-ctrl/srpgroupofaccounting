@@ -1,0 +1,232 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;}
+.topbar{background:#0F6E56;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;width:100%;}
+.logo-wrap{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:44px;height:44px;background:#1D9E75;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;font-family:Georgia,serif;}
+.logo-text{color:#fff;font-size:18px;font-weight:700;line-height:1.2;}
+.logo-sub{color:#9FE1CB;font-size:12px;font-weight:400;}
+.badge{background:#1D9E75;color:#fff;font-size:11px;padding:5px 14px;border-radius:20px;font-weight:600;letter-spacing:0.5px;}
+.nav-tabs{display:flex;gap:0;background:#085041;padding:0 48px;width:100%;border-bottom:2px solid #0F6E56;}
+.tab{padding:14px 22px;font-size:14px;color:#9FE1CB;cursor:pointer;border:none;background:transparent;transition:all 0.15s;font-family:Arial,sans-serif;border-bottom:3px solid transparent;margin-bottom:-2px;}
+.tab.active{color:#fff;font-weight:700;border-bottom:3px solid #1D9E75;}
+.tab:hover:not(.active){color:#E1F5EE;background:#0a5c48;}
+.page{display:none;width:100%;}
+.page.active{display:block;}
+.hero-section{background:#085041;padding:72px 48px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.hero-left{flex:1;max-width:600px;}
+.hero-tag{font-size:12px;color:#9FE1CB;font-weight:600;letter-spacing:1.5px;margin-bottom:14px;text-transform:uppercase;}
+.hero-left h1{font-size:42px;font-weight:700;color:#fff;margin-bottom:16px;line-height:1.25;font-family:Georgia,serif;}
+.hero-left p{font-size:16px;color:#9FE1CB;line-height:1.8;margin-bottom:28px;}
+.cta-btn{background:#1D9E75;color:#fff;border:none;padding:14px 32px;border-radius:8px;font-size:15px;cursor:pointer;font-weight:700;letter-spacing:0.5px;}
+.cta-btn:hover{background:#0F6E56;border:2px solid #9FE1CB;}
+.hero-right{flex:0 0 280px;background:#0F6E56;border-radius:16px;padding:28px;border:1px solid #1D9E75;}
+.hero-right h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:16px;}
+.contact-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.contact-row svg{width:16px;height:16px;stroke:#9FE1CB;fill:none;stroke-width:2;flex-shrink:0;}
+.contact-row span{font-size:14px;color:#E1F5EE;}
+.services-section{padding:64px 48px;background:var(--color-background-primary);width:100%;}
+.section-head{text-align:center;margin-bottom:40px;}
+.section-head h2{font-size:32px;font-weight:700;color:#085041;font-family:Georgia,serif;margin-bottom:8px;}
+.section-head p{font-size:15px;color:var(--color-text-secondary);}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%;}
+.svc-card{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:14px;padding:24px;transition:border 0.2s;}
+.svc-card:hover{border:1px solid #1D9E75;}
+.svc-icon{width:44px;height:44px;border-radius:10px;background:#E1F5EE;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.svc-icon svg{width:22px;height:22px;stroke:#0F6E56;fill:none;stroke-width:2;}
+.svc-card h3{font-size:15px;font-weight:700;color:#085041;margin-bottom:8px;}
+.svc-card p{font-size:13px;color:var(--color-text-secondary);line-height:1.7;}
+.canada-strip{background:#085041;padding:20px 48px;display:flex;align-items:center;justify-content:center;gap:16px;}
+.canada-strip svg{width:20px;height:20px;stroke:#9FE1CB;fill:none;stroke-width:2;}
+.canada-strip span{font-size:15px;color:#9FE1CB;font-weight:600;}
+.info-section{padding:64px 48px;background:var(--color-background-secondary);width:100%;}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.info-card{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:14px;padding:24px;}
+.info-card h3{font-size:16px;font-weight:700;color:#085041;margin-bottom:10px;}
+.info-card p{font-size:13px;color:var(--color-text-secondary);line-height:1.7;}
+.about-section{padding:64px 48px;display:flex;gap:48px;align-items:flex-start;background:var(--color-background-primary);}
+.avatar{width:80px;height:80px;border-radius:50%;background:#0F6E56;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;flex-shrink:0;}
+.chip{display:inline-block;background:#E1F5EE;color:#085041;font-size:12px;padding:5px 12px;border-radius:20px;margin:4px 4px 4px 0;font-weight:600;}
+.testimonials-section{padding:64px 48px;background:var(--color-background-secondary);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.t-card{background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:14px;padding:24px;}
+.stars{color:#BA7517;font-size:16px;margin-bottom:10px;}
+.t-card p{font-size:13px;color:var(--color-text-secondary);line-height:1.7;font-style:italic;margin-bottom:12px;}
+.reviewer{font-size:13px;font-weight:700;color:var(--color-text-primary);}
+.reviewer-role{font-size:12px;color:var(--color-text-secondary);}
+.footer{background:#085041;padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer span{font-size:13px;color:#9FE1CB;}
+.page-hero{background:#085041;padding:56px 48px;width:100%;}
+.page-hero-tag{font-size:12px;color:#9FE1CB;font-weight:600;letter-spacing:1.5px;margin-bottom:12px;text-transform:uppercase;}
+.page-hero h1{font-size:38px;font-weight:700;color:#fff;margin-bottom:14px;font-family:Georgia,serif;line-height:1.3;}
+.page-hero p{font-size:16px;color:#9FE1CB;line-height:1.8;max-width:700px;}
+</style>
+
+<div style="width:100%;min-width:0;">
+  <div class="topbar">
+    <div class="logo-wrap">
+      <div class="logo-icon">SRP</div>
+      <div>
+        <div class="logo-text">SRP Group of Accounting</div>
+        <div class="logo-sub">Bookkeeping &amp; Accounting Services · Across Canada</div>
+      </div>
+    </div>
+    <span class="badge">Serving all of Canada</span>
+  </div>
+
+  <div class="nav-tabs">
+    <button class="tab active" onclick="showPage('home',this)">Home</button>
+    <button class="tab" onclick="showPage('startups',this)">Startups</button>
+    <button class="tab" onclick="showPage('online',this)">Online bookkeeping</button>
+    <button class="tab" onclick="showPage('about',this)">About us</button>
+    <button class="tab" onclick="showPage('testimonials',this)">Testimonials</button>
+  </div>
+
+  <div id="home" class="page active">
+    <div class="hero-section">
+      <div class="hero-left">
+        <div class="hero-tag">Proudly serving businesses across Canada</div>
+        <h1>Bookkeeping that keeps your business moving forward</h1>
+        <p>At SRP Group of Accounting, we handle your books so you can focus on building your business. Accurate, timely, and personalized bookkeeping services — wherever you are in Canada.</p>
+        <button class="cta-btn" onclick="sendPrompt('I want to get in touch with SRP Group of Accounting')">Get in touch ↗</button>
+      </div>
+      <div class="hero-right">
+        <h3>Contact us today</h3>
+        <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 5.18 2 2 0 014.94 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span>437-236-1515</span></div>
+        <div class="contact-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>srpgroup02@gmail.com</span></div>
+        <div class="contact-row"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20"/></svg><span>Serving all of Canada virtually</span></div>
+      </div>
+    </div>
+
+    <div class="canada-strip">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      <span>Proudly serving businesses from coast to coast — virtually anywhere across Canada</span>
+    </div>
+
+    <div class="services-section">
+      <div class="section-head">
+        <h2>What we offer</h2>
+        <p>Comprehensive bookkeeping solutions tailored to your business needs</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+          <h3>Full-cycle bookkeeping</h3>
+          <p>AP, AR, reconciliations, invoicing, journal entries, and year-end prep — weekly, monthly or quarterly.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Payroll</h3>
+          <p>Contractor &amp; employee payroll, remittances, manual pay calculations, and CRA payments on time.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>Reporting</h3>
+          <p>Grant reports, cash flow statements, investor reports, burn rate, and headcount forecasting.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h3>Planning &amp; forecasting</h3>
+          <p>Budget planning, write-offs, and financial forecasting so you know what to plan for as you grow.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>© 2025 SRP Group of Accounting · Across Canada</span><span>srpgroup02@gmail.com · 437-236-1515</span></div>
+  </div>
+
+  <div id="startups" class="page">
+    <div class="page-hero">
+      <div class="page-hero-tag">For early-stage companies across Canada</div>
+      <h1>Build great bookkeeping habits from the very beginning</h1>
+      <p>The startup world is no place for disorganization. Keeping your numbers up-to-date and accessible is essential when working with investors, managing payroll, and growing your business.</p>
+    </div>
+    <div class="info-section">
+      <div class="section-head" style="text-align:left;margin-bottom:32px;">
+        <h2 style="font-size:26px;">Startup bookkeeping services</h2>
+        <p>Everything your growing company needs</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card"><h3>Full-cycle bookkeeping</h3><p>Performed weekly, monthly, or quarterly — includes accounts payable, account reconciliation, accounts receivable, invoicing, journal entries, and year-end preparation.</p></div>
+        <div class="info-card"><h3>Payroll management</h3><p>We help startup clients with contractor and employee payroll needs, remittances, manual pay calculations, and CRA payments — ensuring everyone gets paid on time.</p></div>
+        <div class="info-card"><h3>Investor &amp; grant reporting</h3><p>Managing investment dollars? We help with grant applications, investor reports, cash flow statements, headcount forecasting, and burn/run rate analysis.</p></div>
+        <div class="info-card"><h3>Planning &amp; forecasting</h3><p>We help with forecasting, budget planning, write-offs, and financial tracking so you know exactly what to plan for as your business grows.</p></div>
+        <div class="info-card"><h3>Receipt &amp; expense tracking</h3><p>We guide you through business expenses and receipt tracking so your books never fall behind — keeping you audit-ready at all times.</p></div>
+        <div class="info-card"><h3>Year-end preparation</h3><p>We ensure your books are clean, complete, and ready for year-end so you can look forward to a stress-free tax season every year.</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>© 2025 SRP Group of Accounting · Across Canada</span><span>srpgroup02@gmail.com · 437-236-1515</span></div>
+  </div>
+
+  <div id="online" class="page">
+    <div class="page-hero">
+      <div class="page-hero-tag">Virtual bookkeeping · Anywhere in Canada</div>
+      <h1>Expert online bookkeeping, delivered on time — across Canada</h1>
+      <p>Utilizing cloud storage, video conferencing, emails, and phone calls, our expert team provides top-notch bookkeeping assistance to businesses anywhere across Canada.</p>
+    </div>
+    <div class="info-section">
+      <div class="info-grid">
+        <div class="info-card"><h3>Secure &amp; confidential</h3><p>Your privacy is our top priority. We use multiple backup servers, and carry errors &amp; omissions and full general liability insurance. All your information is held in the strictest confidence.</p></div>
+        <div class="info-card"><h3>Technology-driven service</h3><p>Enhanced online security and cloud technology means we deliver timely, personal bookkeeping services efficiently to clients across every province in Canada.</p></div>
+        <div class="info-card"><h3>Friendly &amp; personal</h3><p>No matter where you are in Canada, you will always deal with a knowledgeable, friendly team member committed to your business success.</p></div>
+      </div>
+    </div>
+    <div class="footer"><span>© 2025 SRP Group of Accounting · Across Canada</span><span>srpgroup02@gmail.com · 437-236-1515</span></div>
+  </div>
+
+  <div id="about" class="page">
+    <div class="page-hero">
+      <div class="page-hero-tag">Who we are</div>
+      <h1>Dedicated bookkeeping professionals across Canada</h1>
+      <p>Founded with a passion for numbers and a commitment to helping businesses thrive, SRP Group of Accounting provides reliable, personalized bookkeeping to businesses nationwide.</p>
+    </div>
+    <div class="about-section">
+      <div class="avatar">SP</div>
+      <div style="flex:1;">
+        <h2 style="font-size:26px;font-weight:700;color:#085041;font-family:Georgia,serif;margin-bottom:4px;">Shruti Patel</h2>
+        <p style="color:#0F6E56;font-size:14px;font-weight:700;margin-bottom:16px;">Owner, SRP Group of Accounting</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.8;margin-bottom:20px;">With a passion for numbers and a dedication to helping businesses thrive, Shruti founded SRP Group of Accounting to provide reliable, personalized bookkeeping services to startups and small businesses across Canada.</p>
+        <div>
+          <span class="chip">Startup bookkeeping</span>
+          <span class="chip">Payroll</span>
+          <span class="chip">Full-cycle bookkeeping</span>
+          <span class="chip">Cash flow reporting</span>
+          <span class="chip">Virtual bookkeeping</span>
+          <span class="chip">Budget forecasting</span>
+          <span class="chip">CRA payments</span>
+          <span class="chip">Year-end prep</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><span>© 2025 SRP Group of Accounting · Across Canada</span><span>srpgroup02@gmail.com · 437-236-1515</span></div>
+  </div>
+
+  <div id="testimonials" class="page">
+    <div class="page-hero">
+      <div class="page-hero-tag">Client reviews</div>
+      <h1>What our clients say</h1>
+      <p>Trusted by startups and small businesses across Canada.</p>
+    </div>
+    <div class="testimonials-section">
+      <div class="testimonials-grid">
+        <div class="t-card"><div class="stars">★★★★★</div><p>"SRP Group has been a game-changer for our startup. Shruti and her team keep our books spotless and always explain everything clearly. We finally feel in control of our finances."</p><div class="reviewer">Aiden M.</div><div class="reviewer-role">Co-founder, Tech Startup</div></div>
+        <div class="t-card"><div class="stars">★★★★★</div><p>"As a small business owner, I used to dread tax season. Since working with SRP Group, everything is organized, on time, and stress-free. Highly recommend!"</p><div class="reviewer">Priya S.</div><div class="reviewer-role">Owner, Retail Business</div></div>
+        <div class="t-card"><div class="stars">★★★★★</div><p>"The virtual bookkeeping service is seamless. I never have to worry about my books anymore — SRP Group handles everything professionally and with great communication."</p><div class="reviewer">James T.</div><div class="reviewer-role">Freelance Consultant</div></div>
+      </div>
+      <div style="text-align:center;margin-top:40px;padding:32px;background:var(--color-background-primary);border-radius:14px;border:1px solid var(--color-border-tertiary);">
+        <p style="font-size:15px;color:#085041;margin-bottom:16px;font-weight:600;">Happy with our service? We'd love to hear from you!</p>
+        <button class="cta-btn" onclick="sendPrompt('I want to leave a review for SRP Group of Accounting')">Share your experience ↗</button>
+      </div>
+    </div>
+    <div class="footer"><span>© 2025 SRP Group of Accounting · Across Canada</span><span>srpgroup02@gmail.com · 437-236-1515</span></div>
+  </div>
+</div>
+
+<script>
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
